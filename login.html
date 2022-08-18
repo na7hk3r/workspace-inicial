@@ -23,7 +23,7 @@
   <!-- Inicio de sesion creado con clases de bootstrap -->
 
   <div class="col-md-10 mx-auto col-lg-5">
-    <form class="p-4 p-md-5 border rounded-3 bg-light">
+    <div class="p-4 p-md-5 border rounded-3 bg-light">
       <div class="img"><img src="./img/login.png" alt="login" class="img-fluid"></div>
       <div class="form-floating mb-3">
         <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico" autocomplete="off">
@@ -34,11 +34,12 @@
         <label for="floatingPassword">Contraseña</label>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit" onclick="controlError()">Ingresar</button>
-    </form>
+    </div>
   </div>
 
+
                       <!-- Autorizacion de Google -->
-                      
+
   <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="YOUR_CLIENT_ID">
     <div class="g-signin2" data-onsuccess="handleCredentialResponse"></div>
