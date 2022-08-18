@@ -17,13 +17,34 @@
 </head>
 
 <body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+
+  <button class="btn btn-lg" onClick="regresar()">Regresar</button>
+
+  <!-- Inicio de sesion creado con clases de bootstrap -->
+
+  <div class="col-md-10 mx-auto col-lg-5">
+    <form class="p-4 p-md-5 border rounded-3 bg-light">
+      <div class="img"><img src="./img/login.png" alt="login" class="img-fluid"></div>
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico" autocomplete="off">
+        <label for="floatingInput">Correo electrónico</label>
       </div>
-    </div>
-  </main>
+      <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
+        <label for="floatingPassword">Contraseña</label>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit" onclick="controlError()">Ingresar</button>
+    </form>
+  </div>
+
+                      <!-- Autorizacion de Google -->
+                      
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="YOUR_CLIENT_ID">
+    <div class="g-signin2" data-onsuccess="handleCredentialResponse"></div>
+
+<!-- Fin de inicio de sesión -->
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">
