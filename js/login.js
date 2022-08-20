@@ -1,7 +1,3 @@
-/*function Success() {
-        window.location.href="index.html"
-    }; */
-
 function controlError() {
     var error = false;
 
