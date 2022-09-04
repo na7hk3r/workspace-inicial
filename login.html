@@ -17,8 +17,32 @@
 </head>
 
 <body>
-
-  <button class="btn btn-lg" onClick="regresar()">Regresar</button>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav w-100 justify-content-between">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Inicio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="categories.html">Categorías</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sell.html">Vender</a>
+          </li>
+          <script href="login.js"></script>
+          <li class="nav-item">
+            <a href="login.html" class="nav-link" id="usuario">Iniciar Sesión</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <button class="btn-dark bg-dark" onClick="regresar()" id="regresar">Regresar</button>
   
   <!-- Inicio de sesion creado con clases de bootstrap -->
 
@@ -42,7 +66,7 @@
 
     <script src="https://apis.google.com/js/platform.js" async defer></script>
     <meta name="google-signin-client_id" content="324409693179-2qou6usiiorq54qi0uv148ul9eh3da2k.apps.googleusercontent.com">
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="g-signin2 row justify-content-center" data-onsuccess="onSignIn"></div>
 
     <!-- Fin de inicio de sesión -->
 
