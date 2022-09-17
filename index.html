@@ -111,8 +111,12 @@
       let user = document.getElementById("user");
       let getUserInput = localStorage.getItem("userInput");
 
+      if (getUserInput === 'null') {
+      user.innerHTML = "Inicio de Sesión";
+    } else {
       user.innerHTML = getUserInput;
     }
+  }
 
     /* Cierra sesión ficticia, quita el item del local Storage 
       y reinicia el nombre de la etiqueta*/

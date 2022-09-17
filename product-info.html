@@ -30,18 +30,37 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user">
+            Inicio de Sesión
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
+            <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+            <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
+            <li><a class="dropdown-item" onClick="cerrarSesion()">Cerrar Sesión</a></li>
+          </ul>
           </li>
-        </ul>
+      </ul>
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
-    </div>
+  <main class="pb-5">
+
+    <!-- Lista INFO -->
+<div class="container p-4">
+  <div id="infoLista"></div>
+  <div id="infoImagenes" class="col-30 row align-items-start"></div>
+  <div id="infoComments" class="row"></div>
+  <div id="comentarioNuevo" class="row"></div>
+  <br>
+  <div class="container" id="cajaComentario">
+    <textarea class="form-control" id="userComment" rows="4" placeholder="Haz un comentario sobre este producto"></textarea>
+    <input type="number" class="form-control" id="puntuacion" min="1" max="5" placeholder="¿⭐? - ¡Puntúa este producto!">
+    <button class="btn btn-primary mt-3" id="enviarComment">Comentar</button>
+  </div>
+</div>
+
   </main>
   <footer class="text-muted">
     <div class="container">

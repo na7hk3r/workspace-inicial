@@ -24,7 +24,7 @@ function mostrarProductos() {
             ((maxCount == undefined) || (maxCount != undefined && parseInt(product.soldCount) <= maxCount))) {
 
         htmlContentToAppend += `
-        <div  class="list-group-item ">
+        <div class="list-group-item list-group-item-action cursor-active" onClick="setCatID(${product.id})">
             <div class="row">
                 <div class="col-3">
                     <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
@@ -39,7 +39,7 @@ function mostrarProductos() {
             </div>
         </div>
         `
-        }
+        } 
         document.getElementById("lista").innerHTML = htmlContentToAppend;
     }
 }
@@ -212,7 +212,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             document.getElementById("search").addEventListener("click", function(){ 
                 inputSearch = document.getElementById("searchInput").value;
-            
+
                 if ((inputSearch != undefined) && (inputSearch != "")) {
                     inputSearch = inputSearch;
                 }
@@ -246,3 +246,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 mostrarProductosCost();
             });
 });
+
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location = "product-info.html"
+}
