@@ -11,6 +11,7 @@ getJSONData(URL)
         if (resultObj.status === "ok") {
             info = resultObj.data;
             showInfo();
+            productosRelacionados();
         }
     });
 
@@ -55,6 +56,7 @@ function showInfo() {
                 <img src="${arrayImg[i]}" alt="productoImg" class="img-thumbnail">
             </div>
         `
+
         }
         
         document.getElementById("infoImagenes").innerHTML += htmlImagenes;
@@ -65,7 +67,10 @@ function mostrarComentarios() {
     let htmlComentarios = "";
     let arrayComment = comment;
     
-    htmlComentarios = `<h1>Comentarios</h1>`
+    htmlComentarios = `
+    <h1>Comentarios</h1>
+    <hr>
+    `
 
     //  Recorrido por los comentarios
     for (let i = 0; i < arrayComment.length; i++) {
@@ -81,6 +86,43 @@ function mostrarComentarios() {
 
     document.getElementById("infoComments").innerHTML = htmlComentarios;
 }
+
+// - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
+
+//  Funcion para E4 - Mostrar relacionados.
+function productosRelacionados() {
+    let htmlRelacionados = "";
+    let arrayRelacionados = info.relatedProducts;
+
+    htmlRelacionados = `
+    <h2>Productos Relacionados:</h2>
+    <hr>
+    `
+
+    for (let j = 0; j < arrayRelacionados.length; j++) {
+
+        htmlRelacionados += `
+          
+        <div class= "col cursor-active" onClick="setCatID(${arrayRelacionados[j].id})">
+                <img src="${arrayRelacionados[j].image}" alt="imgRelacionado" class="img-thumbnail">
+                <h4 class="text-center">${arrayRelacionados[j].name}</h4>
+        </div>
+
+        `
+    }
+
+    document.getElementById("prodRelacionados").innerHTML = htmlRelacionados;
+}
+
+//  Funcion que obtiene la id del producto relacionado y redirecciona a product-info.
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location = "product-info.html"
+}
+
+// - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
+
+
 //  Funcion para mostrar la cantidad de estrellas ingresadas en parámetro
 function stars(puntaje) {
     let add = "";
