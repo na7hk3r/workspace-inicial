@@ -76,11 +76,11 @@ function mostrarComentarios() {
     for (let i = 0; i < arrayComment.length; i++) {
 
         htmlComentarios += `
-        <li class="list-group-item list-group-item-action">
-                    <p class="mb-1 fw-bold">${arrayComment[i].user} ${stars(arrayComment[i].score)}</p>
-                    <p class="mb-1">${arrayComment[i].dateTime}</p>
-                    <p class="mb-1">${arrayComment[i].description}</p>
-        </li>
+                <li class="list-group-item list-group-item-action">
+                            <p class="mb-1 fw-bold">${arrayComment[i].user} ${stars(arrayComment[i].score)}</p>
+                            <p class="mb-1">${arrayComment[i].dateTime}</p>
+                            <p class="mb-1">${arrayComment[i].description}</p>
+                </li>
         `
     }
 
@@ -102,12 +102,12 @@ function productosRelacionados() {
     for (let j = 0; j < arrayRelacionados.length; j++) {
 
         htmlRelacionados += `
-          
-        <div class= "col cursor-active" onClick="setCatID(${arrayRelacionados[j].id})">
-                <img src="${arrayRelacionados[j].image}" alt="imgRelacionado" class="img-thumbnail">
-                <h4 class="text-center">${arrayRelacionados[j].name}</h4>
-        </div>
-
+            <div style="width: 20rem">
+                <div class= "col cursor-active" onClick="setCatID(${arrayRelacionados[j].id})">
+                        <img src="${arrayRelacionados[j].image}" alt="imgRelacionado" class="img-thumbnail">
+                        <h4 class="text-center">${arrayRelacionados[j].name}</h4>
+                </div>
+            </div>
         `
     }
 

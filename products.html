@@ -12,7 +12,7 @@
   <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body>
+<body onload="loginUser()">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1">
     <div class="container">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -22,7 +22,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="index.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -30,19 +30,21 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user">
-            Inicio de Sesión
-          </a>
-          <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
-            <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
-            <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
-            <li><a class="dropdown-item" onClick="cerrarSesion()">Cerrar Sesión</a></li>
-          </ul>
-        </li>
-      </ul>
+       
+          <!-- Dropdown de inicio de sesión -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user">
+              Inicio de Sesión
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><a class="dropdown-item" href="login.html">Iniciar Sesión</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+              <li><a class="dropdown-item" href="cart.html">Carrito de Compras</a></li>
+              <li><a class="dropdown-item" onClick="cerrarSesion()">Cerrar Sesión</a></li>
+            </ul>
+          </li>
+        </ul>
+        </div>
       </div>
     </div>
   </nav>
@@ -134,6 +136,27 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/init.js"></script>
   <script src="js/products.js"></script>
+  <script> 
+    function loginUser() {
+      let user = document.getElementById("user");
+      let getUserInput = localStorage.getItem("userInput");
+    
+      if (getUserInput === 'null') {
+      user.innerHTML = "Inicio de Sesión";
+      } else {
+      user.innerHTML = getUserInput;
+      }
+    }
+
+    /* Cierra sesión, quita el item del local Storage 
+      y reinicia el nombre de la etiqueta*/
+    
+    function cerrarSesion() {
+      localStorage.removeItem("userInput");
+      user.innerHTML = "Inicio de Sesión";
+    }
+  </script>
+
 </body>
 
 </html>
