@@ -48,12 +48,18 @@ function showInfo() {
     `
         document.getElementById("infoLista").innerHTML += htmlContenido;
     
+
+        htmlImagenes += `
+        <div class="carousel-item active">
+            <img src="${arrayImg[0]}" alt="productoImg" class="d-block w-100">
+        </div>
+        `
     //Mostrar las imagenes, con un for para recorrer el array
-        for (let i=0; i < arrayImg.length; i++) {
+        for (let i=1; i < arrayImg.length; i++) {
     
         htmlImagenes += `
-            <div class="col">
-                <img src="${arrayImg[i]}" alt="productoImg" class="img-thumbnail">
+            <div class="carousel-item">
+                <img src="${arrayImg[i]}" alt="productoImg" class="d-block w-100">
             </div>
         `
 

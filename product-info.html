@@ -53,7 +53,25 @@
     <!-- Lista INFO -->
 <div class="container p-4">
   <div id="infoLista"></div>
-  <div id="infoImagenes" class="col-30 row align-items-start"></div>
+
+    <!-- Carrusel Imagenes -->
+  <div class="m-0 row">
+    <div id="carouselExampleControls" class="carousel slide w-50 p-3 " data-bs-ride="carousel">
+      <div id="infoImagenes" class="carousel-inner">
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
   <div id="infoComments" class="row"></div>
 
   <div id="comentarioNuevo" class="row"></div>
