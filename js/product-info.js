@@ -34,7 +34,7 @@ function showInfo() {
         htmlContenido += `
                 <div class="form float-end">
                         <button type="button" 
-                                class="btn btn-outline-success btn-lg" 
+                                class="btn btn-outline-success btn-lg active" 
                                 onClick="setCompra(${info.id})">
                             Comprar
                         </button>
