@@ -47,13 +47,75 @@
       </div>
     </div>
   </nav>
-  <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <main class="pb5">
+
+    <!-- Table base del carrito donde se agrega el producto seleccionado -->
+    <div class="container p-4">
+      <h1 class="text-center">Carrito de Compras</h1><br>
+
+      <h2>Artículos a comprar</h2><br>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Costo</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody id="cartProduct">
+        </tbody>
+      </table>
+      <hr>
+
+      <!-- Formulario que incluye tipo de envio y dirección -->
+      <h2>Tipo de envío</h2><br>
+      <input type="radio" 
+        class="form-check-input position-static"
+        value="premium"
+        id="premium"
+        name="radio">
+         Premium 2 a 5 días (15%)
+      </input><br>
+      <input type="radio" 
+        class="form-check-input position-static"
+        value="express"
+        id="express"
+        name="radio">
+         Express 5 a 8 días (7%)
+        </input><br>
+      <input type="radio" 
+        class="form-check-input position-static"
+        value="standard"
+        id="standard"
+        name="radio"> 
+        Standard 12 a 15 días (5%)
+      </input><br><br>
+      
+      <h2>Dirección de envío</h2>
+      <div class="col-md-8 order-md-1">
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label>Calle:</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label>Número:</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label>Esquina:</label>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <hr>
       </div>
     </div>
   </main>
+
   <footer class="text-muted">
     <div class="container">
       <p class="float-end">

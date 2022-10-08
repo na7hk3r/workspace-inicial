@@ -32,8 +32,15 @@ function showInfo() {
     let htmlImagenes = "";
 
         htmlContenido += `
+                <div class="form float-end">
+                        <button type="button" 
+                                class="btn btn-outline-success btn-lg" 
+                                onClick="setCompra(${info.id})">
+                            Comprar
+                        </button>
+                    </div>
                 <div class="row">
-                    <h1>${info.name}</h1>
+                    <h1>${info.name}</h1> 
                     <hr>
                     <p class="mb-1 fw-bold">Precio</p>
                     <p>${info.currency} ${info.cost}</p><br>
@@ -43,7 +50,7 @@ function showInfo() {
                     <p>${info.category}</p><br>
                     <p class="mb-1 fw-bold">Cantidad de vendidos</p>
                     <p>${info.soldCount}</p><br>
-                    <p class="mb-3 fw-bold">Imágenes Ilustrativas</p>
+                    <p class="mb-3 fw-bold">Imágenes Ilustrativas</p><br>
                 </div>
     `
         document.getElementById("infoLista").innerHTML += htmlContenido;
@@ -128,6 +135,10 @@ function setCatID(id) {
 
 // - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
 
+function setCompra(id) {
+    localStorage.setItem("cartID", id);
+    window.location = "cart.html"
+}
 
 //  Funcion para mostrar la cantidad de estrellas ingresadas en parámetro
 function stars(puntaje) {
