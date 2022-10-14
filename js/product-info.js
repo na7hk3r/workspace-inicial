@@ -35,7 +35,8 @@ function showInfo() {
                 <div class="form float-end">
                         <button type="button" 
                                 class="btn btn-outline-success btn-lg active" 
-                                onClick="setCompra(${info.id})">
+                                onClick="carrito()"
+                                id="btnComprar">
                             Comprar
                         </button>
                     </div>
@@ -135,10 +136,46 @@ function setCatID(id) {
 
 // - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
 
-function setCompra(id) {
-    localStorage.setItem("cartID", id);
-    window.location = "cart.html"
-}
+let carritoNuevo = [];
+// Convierto la ID del producto a una coleccion en formato JSON con JSON.stringify
+function carrito() {
+
+  let compra_ID = "";
+  let producto_id = "";
+  let producto_name = "";
+  let producto_count = "";
+  let producto_unitCost = "";
+  let producto_currency = "";
+  let producto_image = "";
+
+  compra_ID = localStorage.getItem("catID");
+  producto_id = info.id;
+  producto_name = info.name;
+  producto_count = 1;
+  producto_unitCost = info.cost;
+  producto_currency = info.currency;
+  producto_image = info.images[0];
+
+  carritoNuevo.push({
+    ID: compra_ID,
+    articles: [
+      {
+        id: producto_id,
+        name: producto_name,
+        count: producto_count,
+        unitCost: producto_unitCost,
+        currency: producto_currency,
+        image: producto_image,
+      },
+    ],
+  });
+
+  localStorage.setItem("catID", JSON.stringify(carritoNuevo));
+
+  window.location = "cart.html";
+};
+
+// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 //  Funcion para mostrar la cantidad de estrellas ingresadas en parámetro
 function stars(puntaje) {

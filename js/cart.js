@@ -1,6 +1,9 @@
 const URL = CART_INFO_URL + "25801" + EXT_TYPE;
 let producto = {};
 let unitPrice = 0;
+let carritoUsuario = localStorage.getItem('catID') ? JSON.parse(localStorage.getItem('catID')) : [];
+/* Con JSON.parse convierto la coleccion que habia convertido previamente con stringify, 
+   el simbolo '?' actua como operador condicional, parse como condicion verdadera. */
 
 // Hago la peticion al fetch
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (resultObj.status === "ok") {
                 producto = resultObj.data;
                 showCartInfo();
+                compra();
             }
         })
     });
@@ -42,3 +46,31 @@ function subtotal() {
 
         document.getElementById("subtotal").innerHTML = currency + " " + unitPrice * cantArtic.value
 } 
+
+// Agrego el producto almacenado en localStorage a la tabla del carrito
+function compra() {
+if (carritoUsuario != undefined) {
+    let nuevoProducto = "";
+
+    for (let i = 0; i < carritoUsuario.length; i++) {
+        let carriProd = carritoUsuario[i].articles[0];
+
+        nuevoProducto = `
+        <tr>
+            <th scope="row">
+                <img class="img-thumbnail" width=150rem src="${carriProd.image}"/>
+            </th>
+            <td>${carriProd.name}</td>
+            <td>${carriProd.currency} ${carriProd.unitCost}</td>
+            <td>
+                <div class="form-group col">
+                    <input type="number" value=1 id="cantArticulo2" onchange="">
+                </div>
+           </td>
+            <td id="subtotal2"><strong>${carriProd.currency} ${carriProd.unitCost}</strong></td>
+          </tr>
+        `
+        document.getElementById("cartProduct").innerHTML += nuevoProducto;
+    }
+}
+}
