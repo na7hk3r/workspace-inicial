@@ -48,11 +48,11 @@
     </div>
   </nav>
   <main class="pb5">
-
+  
     <!-- Table base del carrito donde se agrega el producto seleccionado -->
     <div class="container p-4">
       <h1 class="text-center">Carrito de Compras</h1><br>
-
+  
       <h2>Artículos a comprar</h2><br>
       <table class="table">
         <thead>
@@ -68,31 +68,19 @@
         </tbody>
       </table>
       <hr>
-
-      <!-- Formulario que incluye tipo de envio y dirección -->
+  
+      <!-- ENVIO-Y-DIRECCION -->
       <h2>Tipo de envío</h2><br>
-      <input type="radio" 
-        class="form-check-input position-static"
-        value="premium"
-        id="premium"
-        name="radio">
-         Premium 2 a 5 días (15%)
+      <input type="radio" class="form-check-input position-static" value="premium" id="premium" name="radio">
+      Premium 2 a 5 días (15%)
       </input><br>
-      <input type="radio" 
-        class="form-check-input position-static"
-        value="express"
-        id="express"
-        name="radio">
-         Express 5 a 8 días (7%)
-        </input><br>
-      <input type="radio" 
-        class="form-check-input position-static"
-        value="standard"
-        id="standard"
-        name="radio"> 
-        Standard 12 a 15 días (5%)
+      <input type="radio" class="form-check-input position-static" value="express" id="express" name="radio">
+      Express 5 a 8 días (7%)
+      </input><br>
+      <input type="radio" class="form-check-input position-static" value="standard" id="standard" name="radio">
+      Standard 12 a 15 días (5%)
       </input><br><br>
-      
+  
       <h2>Dirección de envío</h2>
       <div class="col-md-8 order-md-1">
         <form>
@@ -110,9 +98,76 @@
             <label>Esquina:</label>
             <input type="text" class="form-control">
           </div>
-        </div>
-        <hr>
       </div>
+      <hr>
+
+      <!-- ////////////  ENTREGA  6  //////////// -->
+
+      <!-- COSTOS -->
+      <h2>Costos</h2>
+      <li class="list-group-item list-group-item-action">
+        <p class="mb-1">Subtotal</p>
+        <p class="mb-1 small">Costo unitario del producto por cantidad</p>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <p class="mb-1">Costo de envío</p>
+        <p class="mb-1 small">Según el tipo de envío</p>
+      </li>
+      <li class="list-group-item list-group-item-action">
+        <p class="mb-1">Total ($)</p>
+      </li>
+      <hr>
+
+      <!-- FORMA-DE-PAGO -->
+      <h2>Forma de pago</h2>
+      <p>No ha seleccionado <button type="button" class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Seleccione forma de pago
+      </button></p><br>
+
+      <!-- MODAL -->
+      <div class="modal fade" id="exampleModal" data-bs-backdrop="static" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">
+                <strong>Forma de pago</strong>
+              </h1>
+              <hr>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+      
+            <div class="modal-body">
+              <div class="container p-4">
+                <input type="radio" name="opcion" id="credCard"> Tarjeta de crédito</input>
+                <hr>
+                <label>Número de tarjeta</label>
+                <input type="text" name="card" id="cardInput" class="form-control" placeholder="5555-5555-5555-5555">
+                <label>Código de seg.</label>
+                <input type="text" name="seg" id="secCode" class="form-control" placeholder="###">
+                <label>Vencimiento (MM/AA)</label>
+                <input type="text" name="venc" id="vencimiento" class="form-control" placeholder="MM/AA"><br><br>
+                <input type="radio" name="opcion" id="transBank"> Transferencia bancaria</input>
+                <hr>
+                <label>Número de cuenta</label>
+                <input type="text" name="account" id="accNum" class="form-control" placeholder="1234567-12345">
+              </div>
+            </div>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-primary">Guardar cambios</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Finalización de la compra -->
+      <div class="d-grid gap-2">
+      <button class="btn btn-lg btn-primary">
+        Finalizar compra
+      </button>
+      </div>
+
     </div>
   </main>
 

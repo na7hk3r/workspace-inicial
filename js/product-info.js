@@ -37,6 +37,7 @@ function showInfo() {
                                 class="btn btn-outline-success btn-lg active" 
                                 onClick="carrito()"
                                 id="btnComprar">
+                                <i class="bi bi-cart-fill"></i>
                             Comprar
                         </button>
                     </div>
