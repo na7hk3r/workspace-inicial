@@ -34,12 +34,13 @@
           <!-- Dropdown de inicio de sesión -->
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false" id="user">
-              Inicio de Sesión
+              Iniciar Sesión
             </a>
-            <ul class="dropdown-menu dropdown-menu-dark">
+            <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="user">
               <li><a class="dropdown-item" href="login.html"><i class="bi bi-door-open-fill"></i> Iniciar Sesión</a></li>
               <li><a class="dropdown-item" href="my-profile.html"><i class="bi bi-person-fill"></i> Perfil</a></li>
               <li><a class="dropdown-item" href="cart.html"><i class="bi bi-cart4"></i> Carrito de Compras</a></li>
+              <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" onClick="cerrarSesion()"><i class="bi bi-box-arrow-left"></i> Cerrar Sesión</a></li>
             </ul>
           </li>
@@ -106,26 +107,25 @@
   <script href="login.js"></script>
 
       <!-- Mostrar nombre de usuario en item USER -->
-
-  <script> 
-    function loginUser() {
-      let user = document.getElementById("user");
-      let getUserInput = localStorage.getItem("userInput");
-    
-      if (getUserInput === 'null') {
-      user.innerHTML = "Inicio de Sesión";
-      } else {
-      user.innerHTML = getUserInput;
-      }
-    }
+  <script>
 
     /* Cierra sesión, quita el item del local Storage 
       y reinicia el nombre de la etiqueta*/
-    
     function cerrarSesion() {
       localStorage.removeItem("userInput");
-      user.innerHTML = "Inicio de Sesión";
+      user.innerHTML = "Iniciar Sesión";
     }
+
+    function loginUser() {
+      let user = document.getElementById("user");
+      let getUserInput = localStorage.getItem("userInput");
+
+      if (getUserInput !== 'null') {
+        user.innerHTML = getUserInput;
+      }
+    }
+
+
   </script>
 
 </body>

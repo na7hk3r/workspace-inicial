@@ -33,7 +33,8 @@ function showCartInfo() {
                     <input type="number" value=1 id="cantArticulo" onchange="subtotal()">
                 </div>
            </td>
-            <td id="subtotal"><strong>${producto.articles[0].currency} ${unitPrice}</strong></td>
+            <td id="subtotal"><strong>${producto.articles[0].currency} ${unitPrice}</strong></td> 
+            <td><i class="bi bi-trash3-fill text-danger cursor-active" onclick=""></i></td>
           </tr>
     `
 document.getElementById("cartProduct").innerHTML = productoCarrito;
@@ -64,10 +65,11 @@ if (carritoUsuario != undefined) {
             <td>${carriProd.currency} ${carriProd.unitCost}</td>
             <td>
                 <div class="form-group col">
-                    <input type="number" value=1 id="cantArticulo2" onchange="">
+                    <input type="number" value=1 id="cantArticulo2" onchange="subtotal()">
                 </div>
            </td>
             <td id="subtotal2"><strong>${carriProd.currency} ${carriProd.unitCost}</strong></td>
+            <td><i class="bi bi-trash3-fill text-danger cursor-active" onClick=""></i></td>
           </tr>
         `
         document.getElementById("cartProduct").innerHTML += nuevoProducto;

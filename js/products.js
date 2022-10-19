@@ -85,10 +85,11 @@ function mostrarProductosSearch() {
         let product = arrayProductos[i];
     
         if (((inputSearch == undefined) || (inputSearch != undefined && product.name.includes(inputSearch))) ||
-            ((inputSearch == undefined) || (inputSearch != undefined && product.description.includes(inputSearch)))){
+            ((inputSearch == undefined) || (inputSearch != undefined && product.description.includes(inputSearch))))
+        {
 
         htmlContentToAppend += `
-        <div  class="list-group-item ">
+        <div  class="list-group-item list-group-item-action cursor-active" onClick="setCatID(${product.id})">
             <div class="row">
                 <div class="col-3">
                     <img src="${product.image}" alt="${product.description}" class="img-thumbnail">
