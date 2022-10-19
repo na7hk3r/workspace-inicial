@@ -38,7 +38,7 @@ function showInfo() {
                                 onClick="carrito()"
                                 id="btnComprar">
                                 <i class="bi bi-cart-fill"></i>
-                            Comprar
+                            Agregar al carrito
                         </button>
                     </div>
                 <div class="row">
