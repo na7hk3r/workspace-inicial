@@ -1,7 +1,7 @@
 const URL = CART_INFO_URL + "25801" + EXT_TYPE;
 let producto = {};
 let unitPrice = 0;
-let carritoUsuario = localStorage.getItem('catID') ? JSON.parse(localStorage.getItem('catID')) : [];
+let carritoUsuario = localStorage.getItem('cartID') ? JSON.parse(localStorage.getItem('cartID')) : [];
 /* Con JSON.parse convierto la coleccion que habia convertido previamente con stringify, 
    el simbolo '?' actua como operador condicional, parse como condicion verdadera. */
 
