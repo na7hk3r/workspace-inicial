@@ -2,8 +2,8 @@ const URL = CART_INFO_URL + "25801" + EXT_TYPE;
 let producto = {};
 let unitPrice = 0;
 let carritoUsuario = JSON.parse(localStorage.getItem('cartID'));
-let fechaActual = new Date(); //variable para la fecha actual, para validar el campo vencimiento tarjeta de credito
-let mesActual = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1); //variable para obtener formato para validar vencimiento tarjeta de credito segun el mes
+let fechaActual = new Date();
+let mesActual = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1);
 
 
 // Hago la peticion al fetch
