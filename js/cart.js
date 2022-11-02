@@ -2,10 +2,17 @@ const URL = CART_INFO_URL + "25801" + EXT_TYPE;
 let carritoUsuario = JSON.parse(localStorage.getItem('cartID'));
 let producto = {};
 let unitPrice = 0;
+<<<<<<< HEAD
 let costoEnvio = 0;
 let subTotal = 0;
 let fechaActual = new Date();
 let mesActual = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1);
+=======
+let carritoUsuario = JSON.parse(localStorage.getItem('cartID'));
+let fechaActual = new Date();
+let mesActual = fechaActual.getFullYear() + "-" + (fechaActual.getMonth() + 1);
+
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
 
 
 // Hago la peticion al fetch dentro de un evento a la escucha de la carga del contenido.
@@ -16,12 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 producto = resultObj.data;
                 showCartInfo();
                 compra();
+<<<<<<< HEAD
                 calculoTotal();
+=======
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
                 validarPago();
             }
         })
     });
-
 // Muestro la información del producto a añadirse en la tabla
 function showCartInfo() {
     unitPrice = producto.articles[0].unitCost
@@ -39,13 +48,21 @@ function showCartInfo() {
                 </div>
            </td>
             <td id="subtotal"><strong>${producto.articles[0].currency} ${unitPrice}</strong></td> 
+<<<<<<< HEAD
             <td><button class="btn btn-outline-danger"><i class="bi bi-trash3-fill cursor-active" onclick="eliminar()"></i></button></td>
+=======
+            <td><button class="btn btn-outline-danger" onclick=""><i class="bi bi-trash3-fill cursor-active"></i></button></td>
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
           </tr>
     `
 document.getElementById("cartProduct").innerHTML = productoCarrito;
 }
+<<<<<<< HEAD
 
 // Agrego el/los producto almacenado en localStorage a la tabla del carrito
+=======
+// Agrego el producto almacenado en localStorage a la tabla del carrito
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
 function compra() {
 if (carritoUsuario != undefined) {
     let nuevoProducto = "";
@@ -55,6 +72,7 @@ if (carritoUsuario != undefined) {
 
         nuevoProducto = `
         <tr id="prod">
+<<<<<<< HEAD
             <th scope="row">
                 <img class="img-thumbnail" width=150rem src="${carriProd.image}"/>
             </th>
@@ -68,16 +86,35 @@ if (carritoUsuario != undefined) {
             <td id="subtotal"><strong>${carriProd.currency} ${carriProd.unitCost}</strong></td>
             <td><button class="btn btn-outline-danger"><i class="bi bi-trash3-fill cursor-active" onClick="eliminar()"></i></button></td>
           </tr>
+=======
+          <th scope="row">
+              <img class="img-thumbnail" width=150rem src="${carriProd.image}"/>
+          </th>
+          <td>${carriProd.name}</td>
+          <td>${carriProd.currency} ${carriProd.unitCost}</td>
+          <td>
+              <div class="form-group col">
+                  <input type="number" value=1 min=1 id="cantArticulo2" style="width: 20%" onchange="subtotal()">
+              </div>
+         </td>
+          <td id="subtotal2"><strong>${carriProd.currency} ${carriProd.unitCost}</strong></td>
+          <td><button class="btn btn-outline-danger" onclick=""><i class="bi bi-trash3-fill cursor-active"></i></button></td>
+        </tr>
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
         `
         document.getElementById("cartProduct").innerHTML += nuevoProducto;
     }
 }
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
 // Calculo el subtotal, función que se activa en el cambio (onchange) del valor del input
 function subtotal() {
     let cantArtic = document.getElementById("cantArticulo")
     let currency = producto.articles[0].currency
+<<<<<<< HEAD
     subTotal = document.getElementById("subtotal").value
 
     document.getElementById("subtotal").innerHTML = currency + " " + unitPrice * cantArtic.value
@@ -113,6 +150,11 @@ function eliminar() {
         location.reload();
 }
 
+=======
+
+    document.getElementById("subtotal").innerHTML = currency + " " + unitPrice * cantArtic.value
+} 
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
 // Función para validar el formulario
 function validacion() {
     'use strict'
@@ -132,7 +174,11 @@ function validacion() {
           form.classList.add('was-validated')
         }, false)
       })
+<<<<<<< HEAD
     validarPago()
+=======
+      validarPago()
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
   };
 // Función para validar el modal
 function validarPago() {
@@ -177,4 +223,8 @@ function validarPago() {
             vencimiento.removeAttribute('required');
             accNum.setAttribute('required', 'required');
         }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 2d4524c7555a4dfc51cdf26f9d7056fefbe13fd7
