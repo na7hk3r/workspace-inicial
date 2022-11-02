@@ -129,8 +129,13 @@ function productosRelacionados() {
     document.getElementById("prodRelacionados").innerHTML = htmlRelacionados;
 }
 
-// - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
+// Funcion para setear la ID del producto relacionado.
+function setCatID(id) {
+    localStorage.setItem("catID", id);
+    window.location = "product-info.html"
+}
 
+// - - - - - - -- - - - - - - - - - - - - - - - - -- - - - - - -  -
 
 // Convierto la ID del producto a una coleccion en formato JSON con JSON.stringify
 function carrito() {
