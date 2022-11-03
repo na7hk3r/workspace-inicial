@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 producto = resultObj.data;
                 showCartInfo();
                 compra();
-                calculoTotal();
                 validarPago();
             }
         })
@@ -78,12 +77,12 @@ if (carritoUsuario != undefined) {
 // Calculo el subtotal (onchange) en esta misma muestra TOTAL
 function subtotal() {
     let cantArtic = parseFloat(document.getElementById("cantArticulo").value)
-    let currency = producto.articles[0].currency
     subTotal = parseFloat(document.getElementById("subtotal").innerText)
+    
 
     document.getElementById("subtotal").innerHTML = unitPrice * cantArtic
     document.getElementById("subtotalInicial").innerHTML = subTotal
-    document.getElementById("totalFinal").innerHTML = subTotal + costoEnvio;
+    document.getElementById("totalFinal").innerHTML = subTotal + costoEnvio
 
 } 
 
