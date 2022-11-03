@@ -20,7 +20,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 validarPago();
             }
         })
-    });
+    }
+);
 
 // Muestro la información del producto a añadirse en la tabla
 function showCartInfo() {
@@ -38,7 +39,7 @@ function showCartInfo() {
                     <input type="number" value=1 min=1 id="cantArticulo" style="width: 20%" onchange="subtotal()">
                 </div>
            </td>
-            <td id="subtotal"><strong>${producto.articles[0].currency} ${unitPrice}</strong></td> 
+            <td><strong>${producto.articles[0].currency} <span id="subtotal">${unitPrice}</span></strong></td> 
             <td><button class="btn btn-outline-danger"><i class="bi bi-trash3-fill cursor-active" onclick="eliminar()"></i></button></td>
           </tr>
     `
@@ -65,7 +66,7 @@ if (carritoUsuario != undefined) {
                     <input type="number" value=1 min=1 id="cantArticulo" style="width: 20%" onchange="subtotal()">
                 </div>
            </td>
-            <td id="subtotal"><strong>${carriProd.currency} ${carriProd.unitCost}</strong></td>
+            <td><strong>${carriProd.currency} <span id="subtotal">${carriProd.unitCost}</span></strong></td>
             <td><button class="btn btn-outline-danger"><i class="bi bi-trash3-fill cursor-active" onClick="eliminar()"></i></button></td>
           </tr>
         `
@@ -74,22 +75,19 @@ if (carritoUsuario != undefined) {
 }
 }
 
-// Calculo el subtotal, función que se activa en el cambio (onchange) del valor del input
+// Calculo el subtotal (onchange) en esta misma muestra TOTAL
 function subtotal() {
-    let cantArtic = document.getElementById("cantArticulo")
+    let cantArtic = parseFloat(document.getElementById("cantArticulo").value)
     let currency = producto.articles[0].currency
-    subTotal = document.getElementById("subtotal").value
+    subTotal = parseFloat(document.getElementById("subtotal").innerText)
 
-    document.getElementById("subtotal").innerHTML = currency + " " + unitPrice * cantArtic.value
-    // JSON.parse(document.getElementById("subtotal").value) = subTotal
+    document.getElementById("subtotal").innerHTML = unitPrice * cantArtic
     document.getElementById("subtotalInicial").innerHTML = subTotal
+    document.getElementById("totalFinal").innerHTML = subTotal + costoEnvio;
 
-    calculoTotal()
 } 
 
-// Funcion para calcular el costo de envío.
-// shippingCost.innerHTML // standard, express, premium
-
+// Calcular costo de envío
 function calcEnvio() {
     if (document.getElementById("standard").checked) {
         costoEnvio = subTotal * 0.05
@@ -101,19 +99,15 @@ function calcEnvio() {
         costoEnvio = subTotal * 0.15
         document.getElementById("shippingCost").innerHTML = costoEnvio
     }
-        calculoTotal();
-    };
+};
 
-function calculoTotal() {
-    document.getElementById("totalFinal").innerHTML = document.getElementById("subtotal").value + document.getElementById("shippingCost").value;
-}
-
+// Eliminar productos
 function eliminar() {
         localStorage.removeItem('cartID');
         location.reload();
 }
 
-// Función para validar el formulario
+// Validacion de formulario
 function validacion() {
     'use strict'
   
@@ -133,8 +127,9 @@ function validacion() {
         }, false)
       })
     validarPago()
-  };
-// Función para validar el modal
+};
+
+// Validacion de modal
 function validarPago() {
         let credCard = document.getElementById("credCard");
         let transBank = document.getElementById("transBank");
