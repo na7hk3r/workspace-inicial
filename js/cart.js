@@ -74,18 +74,6 @@ if (carritoUsuario != undefined) {
 }
 }
 
-// Calculo el subtotal (onchange) en esta misma muestra TOTAL
-function subtotal() {
-    let cantArtic = parseFloat(document.getElementById("cantArticulo").value)
-    subTotal = parseFloat(document.getElementById("subtotal").innerText)
-    
-
-    document.getElementById("subtotal").innerHTML = unitPrice * cantArtic
-    document.getElementById("subtotalInicial").innerHTML = subTotal
-    document.getElementById("totalFinal").innerHTML = subTotal + costoEnvio
-
-} 
-
 // Calcular costo de envío
 function calcEnvio() {
     if (document.getElementById("standard").checked) {
@@ -99,6 +87,19 @@ function calcEnvio() {
         document.getElementById("shippingCost").innerHTML = costoEnvio
     }
 };
+
+// Calculo el subtotal (onchange) en esta misma muestra TOTAL
+function subtotal() {
+    let cantArtic = parseFloat(document.getElementById("cantArticulo").value)
+    subTotal = parseFloat(document.getElementById("subtotal").innerText)
+    let envio = parseInt(document.getElementById("shippingCost").innerText)
+
+    document.getElementById("subtotal").innerHTML = unitPrice * cantArtic
+    document.getElementById("subtotalInicial").innerHTML = subTotal
+
+    document.getElementById("totalFinal").innerHTML = subTotal + envio
+
+} 
 
 // Eliminar productos
 function eliminar() {
@@ -121,11 +122,11 @@ function validacion() {
             event.preventDefault()
             event.stopPropagation()
           }
-  
           form.classList.add('was-validated')
         }, false)
       })
     validarPago()
+    swal("Compra realizada", "Ha finalizado con éxito el procedimiento de compra.", "success");
 };
 
 // Validacion de modal
@@ -172,3 +173,4 @@ function validarPago() {
             accNum.setAttribute('required', 'required');
         }
 };
+
