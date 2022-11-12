@@ -5,6 +5,7 @@ let segApellido = document.getElementById("segApellido");
 let tel = document.getElementById("tel");
 let emailUser = document.getElementById("emailUser");
 let empty = false;
+let profileImg = document.getElementById("profileImg");
 
 /*  Evento que es lanzado cuando carga el DOM
     envia a función para verificar login    */
@@ -59,5 +60,18 @@ function showUser() {
     apellido.value = localStorage.getItem("apellido")
     segApellido.value = localStorage.getItem("segApellido")
     tel.value = localStorage.getItem("tel")
+    profileImg.src = localStorage.getItem("newImage")
 }
 
+/*  Desafio, con FileReader() - 
+    fileReader envia la img como un resultado que se envia al src de la imagen */
+function readURL(myImg){
+    const reader = new FileReader();
+  
+    reader.addEventListener("load", () =>{
+      localStorage.setItem("newImage", reader.result);
+      profileImg.src = reader.result;
+    })
+  
+    reader.readAsDataURL(myImg.files[0]);
+  }
