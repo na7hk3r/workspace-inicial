@@ -43,11 +43,11 @@ function validate() {
 
 //Guarda la info de los input en localStorage
 function saveProfileData() {
-    localStorage.setItem("nombre", nombre);
-    localStorage.setItem("segNombre", segNombre);
-    localStorage.setItem("apellido", apellido);
-    localStorage.setItem("segApellido", segApellido);
-    localStorage.setItem("tel", tel);
+    localStorage.setItem("nombre", nombre.value);
+    localStorage.setItem("segNombre", segNombre.value);
+    localStorage.setItem("apellido", apellido.value);
+    localStorage.setItem("segApellido", segApellido.value);
+    localStorage.setItem("tel", tel.value);
 }
 
 /*  En caso de tener info guardada en localStorage, 
@@ -58,6 +58,6 @@ function showUser() {
     segNombre.value = localStorage.getItem("segNombre")
     apellido.value = localStorage.getItem("apellido")
     segApellido.value = localStorage.getItem("segApellido")
-    tel.innerText = localStorage.getItem("tel")
+    tel.value = localStorage.getItem("tel")
 }
 
