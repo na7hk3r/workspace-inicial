@@ -6,6 +6,8 @@ let tel = document.getElementById("tel");
 let emailUser = document.getElementById("emailUser");
 let empty = false;
 
+/*  Evento que es lanzado cuando carga el DOM
+    envia a función para verificar login    */
 document.addEventListener("DOMContentLoaded", () => {
     checkLogin();
 });
@@ -13,31 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
 //Verifica que esté logeado.
 function checkLogin() {
     if(localStorage.getItem("userInput") !== null){
-        showUser()
+        showUser();
     };
 };
 
 //Validacion de campos requeridos llenos
 function validate() {
-    if (nombre.value === '') {
-        nombre.classList.add('is-invalid');
-        empty = true;
-    }
+    'use strict'
 
-    if (apellido.value === '') {
-        apellido.classList.add('is-invalid');
-        empty = true;
-    }
- 
-    if (tel.value === '') {
-        tel.classList.add('is-invalid');
-        empty = true;
-    }
+    // Obtener todos los formularios a los que queremos aplicar estilos de validación de Bootstrap personalizados
+    var forms = document.querySelectorAll('.needs-validation')
 
-    if (!empty) { 
-        saveProfileData();
-    }
-  };
+    // Bucle sobre ellos y evitar el envío
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+            if (!form.checkValidity()){
+            event.preventDefault()
+            event.stopPropagation()
+        }
+
+            form.classList.add('was-validated')
+        }, false
+        )
+        })
+};
 
 //Guarda la info de los input en localStorage
 function saveProfileData() {
@@ -50,13 +52,12 @@ function saveProfileData() {
 
 /*  En caso de tener info guardada en localStorage, 
     se muestra al usuario   */
-
 function showUser() {
     emailUser.value = localStorage.getItem("userInput")
     nombre.value = localStorage.getItem("nombre")
     segNombre.value = localStorage.getItem("segNombre")
     apellido.value = localStorage.getItem("apellido")
     segApellido.value = localStorage.getItem("segApellido")
-    tel.value = localStorage.getItem("tel")
+    tel.innerText = localStorage.getItem("tel")
 }
 
