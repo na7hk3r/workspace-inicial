@@ -1,28 +1,32 @@
 function controlError() {
 
     var error = false;
-    var email = document.getElementById("floatingInput").value;
-    var password = document.getElementById("floatingPassword").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
 
     // Comprobación de campos vacios:
+
+    if (email == "" || !email.includes('@')) {
+        error = true;
+    }
     
-    if (password == "" || email == "") {
+    if (password == "") {
         error = true;
     } 
 
     if (error) {
         alertError();
     } else {
-        window.location.href='./index.html';
+        location.href='./index.html';
     }
 }
 
 function alertError() {
-    alert("Debe completar los campos solicitados");
+    document.getElementById("alertaLogin").classList.add("show");
 }
 
 function regresar() {
-    document.getElementById("regresar").addEventListener('click', function(){
+    document.getElementById("regresar").addEventListener('click', () => {
         location.href='./index.html';
     })
 };
@@ -30,5 +34,5 @@ function regresar() {
     // Capturar nombre de usuario en localStorage: 
 
 document.getElementById("submit").addEventListener('click', () => {
-    localStorage.setItem("userInput", document.getElementById('floatingInput').value)
+    localStorage.setItem("userInput", document.getElementById('email').value)
 });

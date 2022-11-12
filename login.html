@@ -62,15 +62,20 @@
     <div class="p-4 p-md-5 border rounded-3 bg-light">
       <div class="img"><img src="./img/login.png" alt="login" class="img-fluid"></div>
       <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="Correo electrónico" autocomplete="off">
-        <label for="floatingInput">Correo electrónico</label>
+        <input type="email" class="form-control" id="email" placeholder="Correo electrónico" autocomplete="off">
+        <label for="email">Correo electrónico</label>
       </div>
       <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-        <label for="floatingPassword">Contraseña</label>
+        <input type="password" class="form-control" id="password" placeholder="Contraseña">
+        <label for="password">Contraseña</label>
       </div>
       <button class="w-100 btn btn-lg btn-primary" type="submit" id="submit" onclick="controlError()">Ingresar</button>
     </div>
+  </div>
+  <div class="alert alert-danger alert-dismissible fade" role="alert" id="alertaLogin">
+    <p>Por favor, complete los campos.</p>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+    </button>
   </div>
 
 

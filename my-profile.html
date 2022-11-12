@@ -64,11 +64,72 @@
       </div>
     </div>
   </nav>
-  <main>
+  <main class="pb-5">
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div class="row">
+        <div class="col">
+          <br>
+          <h1>Perfil</h1>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <img src="img/img_perfil.png" id="profileImg" class="img-responsive" width="30%">
+        </div>
       </div>
+      <hr>
+  
+      <div class="row p-3">
+        <div class="col-md-5">
+          <label for="nombre" class="form-label">Primer nombre<strong>*</strong></label>
+          <input type="text" class="form-control" id="nombre" required placeholder="Primer nombre">
+          <div class="invalid-feedback">
+            Ingresar al menos un nombre, es obligatorio.
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label for="segNombre" class="form-label">Segundo nombre</label>
+          <input type="text" class="form-control" id="segNombre" placeholder="Segundo nombre">
+        </div>
+      </div>
+  
+      <div class="row p-3">
+        <div class="col-md-5">
+          <label for="apellido" class="form-label">Primer apellido<strong>*</strong></label>
+          <input type="text" class="form-control" id="apellido" required placeholder="Primer apellido">
+          <div class="invalid-feedback">
+            Ingresar un apellido es requerido.
+          </div>
+        </div>
+        <div class="col-md-5">
+          <label for="segApellido" class="form-label">Segundo apellido</label>
+          <input type="text" class="form-control" id="segApellido" placeholder="Segundo apellido">
+        </div>
+      </div>
+  
+      <div class="row p-3">
+        <div class="col-md-5">
+          <label for="email" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="emailUser" placeholder="ejemplo@mail.com">
+        </div>
+        <div class="col-md-5">
+          <label for="imagenUser" class="form-label">Seleccionar imagen de perfil</label>
+          <input type="file" class="form-control" id="imagenUser">
+        </div>
+      </div>
+  
+      <div class="row p-3">
+        <div class="col-md-5">
+          <label for="tel" class="form-label">Telefono de Contacto<strong>*</strong></label>
+          <input type="number" class="form-control" id="tel" placeholder="0303-456" min="1">
+          <div class="invalid-feedback">
+            Ingrese un teléfono válido.
+          </div>
+        </div>
+      </div>
+      <br><br><br>
+      <hr>
+  
+      <button type="button" class="btn btn-primary" id="save" onclick="validate()">Guardar cambios</button>
+  
     </div>
   </main>
   <footer class="text-muted">
