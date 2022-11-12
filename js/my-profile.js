@@ -60,7 +60,8 @@ function showUser() {
     apellido.value = localStorage.getItem("apellido")
     segApellido.value = localStorage.getItem("segApellido")
     tel.value = localStorage.getItem("tel")
-    profileImg.src = localStorage.getItem("newImage")
+    if (localStorage.getItem("newImage") !== null)
+    {profileImg.src = localStorage.getItem("newImage")}
 }
 
 /*  Desafio, con FileReader() - 
